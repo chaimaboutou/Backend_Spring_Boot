@@ -2,15 +2,18 @@ package com.demo.billcalculator.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "order_items")
 public class OrderItem {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String itemName;
-    private double price;
+    private BigDecimal price;
     private int quantity;
 
     public Long getId() {
@@ -29,11 +32,11 @@ public class OrderItem {
         this.itemName = itemName;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

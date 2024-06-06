@@ -2,6 +2,7 @@ package com.demo.billcalculator.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -12,10 +13,8 @@ public class OrderResponse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-
     @Column(name = "total_cost")
-    private double totalCost;
+    private BigDecimal totalCost;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "order_response_id")
@@ -29,11 +28,11 @@ public class OrderResponse {
         this.id = id;
     }
 
-    public double getTotalCost() {
+    public BigDecimal getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost) {
+    public void setTotalCost(BigDecimal totalCost) {
         this.totalCost = totalCost;
     }
 
